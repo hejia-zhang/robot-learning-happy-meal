@@ -14,7 +14,7 @@ def main():
     # Make the environment
     env = gym.make('CartPole-v0')
     model = dqn.models.mlp([64])
-    act = algo.learn(
+    act = dqn.learn(
         env,
         q_func=model,
         lr=1e-3,

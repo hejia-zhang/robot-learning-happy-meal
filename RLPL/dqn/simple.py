@@ -8,12 +8,12 @@ import tensorflow as tf
 import numpy as np
 
 
-from dqn import algo
-from dqn.algo.utils import BatchInput, load_state, save_state
+from RLPL import dqn
+from RLPL.dqn.utils import BatchInput, load_state, save_state
 from baselines import logger
 from baselines.common.schedules import LinearSchedule
 import baselines.common.tf_util as U
-from dqn.algo.replay_buffer import ReplayBuffer
+from RLPL.dqn.replay_buffer import ReplayBuffer
 
 
 class ActWrapper(object):
@@ -25,7 +25,7 @@ class ActWrapper(object):
     def load(path):
         with open(path, 'rb') as f:
             model_data, act_params = cloudpickle.load(f)
-        act = algo.build_act(**act_params)
+        act = dqn.build_act(**act_params)
         sess = tf.Session()
         sess.__enter__()
         with tempfile.TemporaryDirectory() as td:
@@ -158,7 +158,7 @@ def learn(env,
     def make_obs_ph(name):
         return BatchInput(observation_space_shape, name=name)
 
-    act, train, update_target, debug = algo.build_train(
+    act, train, update_target, debug = dqn.build_train(
         make_obs_ph=make_obs_ph,
         q_func=q_func,
         num_actions=env.action_space.n,
