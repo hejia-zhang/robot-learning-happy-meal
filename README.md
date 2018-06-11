@@ -1,1 +1,1 @@
-# Let's fuck reinforcement learning together
+# The best way to learn RL is to implement RL.

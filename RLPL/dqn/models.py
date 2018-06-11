@@ -8,6 +8,27 @@ def _mlp(hiddens,
          scope,
          reuse=False,
          layer_norm=False):
+    """
+    This model takes an observation as input and returns values of all actions.
+
+    Parameters
+    ----------
+    hiddens: [int]
+        list of sizes of hidden layers
+
+    inpt:
+        observation
+
+    num_actions:
+        the number of actions
+
+    reuse:
+        if reuse
+
+
+    Returns
+    -------
+    """
     with tf.variable_scope(scope, reuse=reuse):
         out = inpt
         for hidden in hiddens:
@@ -20,7 +41,8 @@ def _mlp(hiddens,
 
 
 def mlp(hiddens=[], layer_norm=False):
-    """This model takes as input an observation and returns values of all actions.
+    """
+    This is a wrapper of a multilayer perceptron
 
     Parameters
     ----------

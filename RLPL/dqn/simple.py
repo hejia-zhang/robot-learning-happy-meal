@@ -94,7 +94,8 @@ def learn(env,
           gamma=1.0,
           target_network_update_freq=500,
           callback=None):
-    """Train a deepq model
+    """
+    Train a deepq model
 
 
     Parameters
