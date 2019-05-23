@@ -1,7 +1,7 @@
 import gym
 
 
-from RLPL import dqn
+from happy_meal import dqn
 
 
 def callback(lcl, _glb):

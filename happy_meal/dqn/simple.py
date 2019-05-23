@@ -8,12 +8,12 @@ import tensorflow as tf
 import numpy as np
 
 
-from RLPL import dqn
-from RLPL.dqn.utils import BatchInput, load_state, save_state
+from happy_meal import dqn
+from happy_meal.dqn.utils import BatchInput, load_state, save_state
 from baselines import logger
 from baselines.common.schedules import LinearSchedule
 import baselines.common.tf_util as U
-from RLPL.dqn.replay_buffer import ReplayBuffer
+from happy_meal.dqn.replay_buffer import ReplayBuffer
 
 
 class ActWrapper(object):
